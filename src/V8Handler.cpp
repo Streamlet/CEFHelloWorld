@@ -11,7 +11,7 @@ bool V8Handler::Execute(const CefString& name,
     if (name == FUNCTION_NAMES[FUNCTION_ABOUT])
     {
         HWND hModalOwner = FindWindow(MainFrame::GetWndClassInfo().m_wc.lpszClassName, nullptr);
-        ::MessageBox(hModalOwner, L"ÕâÊÇÒ»Ö»Ê¹ÓÃ CEF ¿ò¼ÜĞ´µÄä¯ÀÀÆ÷¡£", L"¹ØÓÚ", MB_OK | MB_ICONINFORMATION);
+        ::MessageBox(hModalOwner, L"è¿™æ˜¯ä¸€åªä½¿ç”¨ CEF æ¡†æ¶å†™çš„æµè§ˆå™¨ã€‚", L"å…³äº", MB_OK | MB_ICONINFORMATION);
         return true;
     }
     else if (name == FUNCTION_NAMES[FUNCTION_SUM])
