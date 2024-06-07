@@ -7,10 +7,10 @@ DEPS:
     GIT_TAG: master
 
   thirdparty/wtl:
-    URL: https://sourceforge.net/projects/wtl/files/WTL%2010/WTL%2010.0.8356/WTL10_8356.zip/download
+    URL: https://sourceforge.net/projects/wtl/files/WTL%2010/WTL%2010.0.10320%20Release/WTL10_10320_Release.zip/download
     URL_FORMAT: zip
     URL_HASH:
-      SHA1: 300da91fc281de2c783cc498aa71b21c322d6619
+      SHA1: dcf521f4f4aeab0f1934436986224d83bf40eae2
 
   thirdparty/cef:
     URL: https://cef-builds.spotifycdn.com/cef_binary_75.1.4%2Bg4210896%2Bchromium-75.0.3770.100_windows64_minimal.tar.bz2

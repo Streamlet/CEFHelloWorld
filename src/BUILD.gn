@@ -36,8 +36,6 @@ executable("CefHelloWorld") {
     "res/Script.js",
   ]
 
-  ldflags = [ "/MANIFESTUAC:level='highestAvailable' uiAccess='false'" ]
-
   libs = [
     "atls.lib",
     "libcef.lib",
