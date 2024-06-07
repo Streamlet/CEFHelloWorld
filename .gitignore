@@ -1,6 +1,4 @@
 .*
-/bin
-/obj
-*.vcxproj.user
-*.aps
-**/GPUCache/
+/build/
+/out/
+/thirdparty/

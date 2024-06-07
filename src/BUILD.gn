@@ -1,0 +1,51 @@
+executable("CefHelloWorld") {
+  configs += [ "../build/config/win:windows_subsystem" ]
+  sources = [
+    "AddressBar.cpp",
+    "AddressBar.h",
+    "App.cpp",
+    "App.h",
+    "AppBrowser.cpp",
+    "AppBrowser.h",
+    "AppRenderer.cpp",
+    "AppRenderer.h",
+    "Client.cpp",
+    "Client.h",
+    "ClientDevTools.cpp",
+    "ClientDevTools.h",
+    "Main.cpp",
+    "MainFrame.cpp",
+    "MainFrame.h",
+    "Message.h",
+    "PageHolder.cpp",
+    "PageHolder.h",
+    "SchemeHandler.cpp",
+    "SchemeHandler.h",
+    "V8Handler.cpp",
+    "V8Handler.h",
+    "res/CefHelloWorld.rc",
+    "res/resource.h",
+    "stdafx.cpp",
+    "stdafx.h",
+    "targetver.h",
+  ]
+
+  inputs = [
+    "res/compatibility.manifest",
+    "res/HomePage.html",
+    "res/Script.js",
+  ]
+
+  ldflags = [ "/MANIFESTUAC:level='highestAvailable' uiAccess='false'" ]
+
+  libs = [
+    "atls.lib",
+    "libcef.lib",
+    "libcef_dll_wrapper.lib",
+  ]
+
+  deps = [
+    "../thirdparty:cef",
+    "../thirdparty:wtl",
+  ]
+}

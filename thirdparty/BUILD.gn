@@ -1,0 +1,64 @@
+config("cef_public_config") {
+  include_dirs = [ "cef" ]
+  lib_dirs = [ "cef/Release" ]
+  if (is_debug) {
+    lib_dirs += [ "$target_out_dir/cef/libcef_dll_wrapper/Debug" ]
+  } else {
+    lib_dirs += [ "$target_out_dir/cef/libcef_dll_wrapper/Release" ]
+  }
+}
+
+copy("cef_files") {
+  sources = [
+    "cef/Release/chrome_elf.dll",
+    "cef/Release/d3dcompiler_47.dll",
+    "cef/Release/libEGL.dll",
+    "cef/Release/libGLESv2.dll",
+    "cef/Release/libcef.dll",
+    "cef/Release/natives_blob.bin",
+    "cef/Release/snapshot_blob.bin",
+    "cef/Release/v8_context_snapshot.bin",
+    "cef/Resources/cef.pak",
+    "cef/Resources/cef_100_percent.pak",
+    "cef/Resources/cef_200_percent.pak",
+    "cef/Resources/cef_extensions.pak",
+    "cef/Resources/devtools_resources.pak",
+    "cef/Resources/icudtl.dat",
+  ]
+  outputs = [ "$root_out_dir/{{source_file_part}}" ]
+}
+
+copy("cef_locale_files") {
+  sources = [
+    "cef/Resources/locales/en-US.pak",
+    "cef/Resources/locales/zh-CN.pak",
+  ]
+  outputs = [ "$root_out_dir/locales/{{source_file_part}}" ]
+}
+
+cmake("cef") {
+  cmake_root_dir = "cef"
+  if (is_debug) {
+    cmake_outputs = [
+      "$target_out_dir/cef/libcef_dll_wrapper/Debug/libcef_dll_wrapper.lib",
+    ]
+  } else {
+    cmake_outputs = [
+      "$target_out_dir/cef/libcef_dll_wrapper/Release/libcef_dll_wrapper.lib",
+    ]
+  }
+
+  deps = [
+    ":cef_files",
+    ":cef_locale_files",
+  ]
+  public_configs = [ ":cef_public_config" ]
+}
+
+config("wtl_public_config") {
+  include_dirs = [ "wtl/Include" ]
+}
+
+group("wtl") {
+  public_configs = [ ":wtl_public_config" ]
+}
