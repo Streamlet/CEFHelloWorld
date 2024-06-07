@@ -1,0 +1,19 @@
+# SRCDEP.yaml
+# processed by https://github.com/Streamlet/srcdep, A simple, source code based dependency management tool.
+
+DEPS:
+  build:
+    GIT_REPO: https://github.com/Streamlet/gn_toolchain.git
+    GIT_TAG: master
+
+  thirdparty/wtl:
+    URL: https://sourceforge.net/projects/wtl/files/WTL%2010/WTL%2010.0.8356/WTL10_8356.zip/download
+    URL_FORMAT: zip
+    URL_HASH:
+      SHA1: 300da91fc281de2c783cc498aa71b21c322d6619
+
+  thirdparty/cef:
+    URL: https://cef-builds.spotifycdn.com/cef_binary_75.1.4%2Bg4210896%2Bchromium-75.0.3770.100_windows64_minimal.tar.bz2
+    ROOT_DIR: cef_binary_75.1.4+g4210896+chromium-75.0.3770.100_windows64_minimal
+    URL_HASH:
+      SHA1: 0aecfa3de37f6c7729f755016fd5e27999ab7d91
