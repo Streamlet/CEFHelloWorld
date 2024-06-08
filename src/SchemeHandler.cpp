@@ -27,7 +27,7 @@ bool ResourceHandler::Open(CefRefPtr<CefRequest> request, bool& handle_request, 
     return true;
 }
 
-void ResourceHandler::GetResponseHeaders(CefRefPtr<CefResponse> response, int64& response_length, CefString& redirectUrl)
+void ResourceHandler::GetResponseHeaders(CefRefPtr<CefResponse> response, int64_t& response_length, CefString& redirectUrl)
 {
     response->SetStatus(200);
     response->SetMimeType(L"text/html");

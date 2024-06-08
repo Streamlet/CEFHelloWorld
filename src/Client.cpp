@@ -23,10 +23,10 @@ bool Client::OnBeforePopup(CefRefPtr<CefBrowser> browser,
 {
     switch (target_disposition)
     {
-    case WOD_NEW_FOREGROUND_TAB:
-    case WOD_NEW_BACKGROUND_TAB:
-    case WOD_NEW_POPUP:
-    case WOD_NEW_WINDOW:
+    case CEF_WOD_NEW_FOREGROUND_TAB:
+    case CEF_WOD_NEW_BACKGROUND_TAB:
+    case CEF_WOD_NEW_POPUP:
+    case CEF_WOD_NEW_WINDOW:
         m_pMainFrame->PopupAndNavigate(target_url);
         return true; //cancel create
     }
@@ -86,8 +86,7 @@ void Client::OnLoadEnd(CefRefPtr<CefBrowser> browser,
         assert(dwSize != 0);
         LPCWSTR p = (LPCWSTR)LockResource(hGlobal);
         assert(p != nullptr);
-        CefString strScript;
-        strScript.FromString(p + 1, dwSize / 2 - 1, false);
+        CefString strScript((const char16_t *)p + 1, dwSize / 2 - 1, false);
 
         frame->ExecuteJavaScript(strScript, frame->GetURL(), 0);
     }
@@ -136,8 +135,10 @@ bool Client::OnKeyEvent(CefRefPtr<CefBrowser> browser, const CefKeyEvent& event,
 
     RECT rect = {};
     ::GetWindowRect(browser->GetHost()->GetWindowHandle(), &rect);
-    window_info.width = max(rect.right - rect.left, 800);
-    window_info.height = max(rect.bottom - rect.top, 600);
+    window_info.bounds.x = rect.left + 200;
+    window_info.bounds.y = rect.top + 200;
+    window_info.bounds.width = max(rect.right - rect.left, 800);
+    window_info.bounds.height = max(rect.bottom - rect.top, 600);
 
     if (m_DevToolsClient == nullptr)
     {

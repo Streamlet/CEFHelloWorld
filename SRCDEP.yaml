@@ -13,7 +13,7 @@ DEPS:
       SHA1: dcf521f4f4aeab0f1934436986224d83bf40eae2
 
   thirdparty/cef:
-    URL: https://cef-builds.spotifycdn.com/cef_binary_75.1.4%2Bg4210896%2Bchromium-75.0.3770.100_windows64_minimal.tar.bz2
-    ROOT_DIR: cef_binary_75.1.4+g4210896+chromium-75.0.3770.100_windows64_minimal
+    URL: https://cef-builds.spotifycdn.com/cef_binary_125.0.21%2Bgc8b1a8c%2Bchromium-125.0.6422.142_windows64.tar.bz2
+    ROOT_DIR: cef_binary_125.0.21+gc8b1a8c+chromium-125.0.6422.142_windows64
     URL_HASH:
-      SHA1: 0aecfa3de37f6c7729f755016fd5e27999ab7d91
+      SHA1: 9cb18081d81813eb9078946414fa3d74ebfe188e

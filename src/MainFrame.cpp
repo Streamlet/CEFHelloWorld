@@ -125,7 +125,7 @@ LRESULT MainFrame::OnAppContextInitialized(UINT uMsg, WPARAM wParam, LPARAM lPar
     m_PageHolder.GetClientRect(&rect);
 
     CefWindowInfo info;
-    info.SetAsChild(m_PageHolder, rect);
+    info.SetAsChild(m_PageHolder, CefRect(rect.left, rect.top, rect.Width(), rect.Height()));
 
     m_Client = new Client(this);
 
@@ -158,12 +158,12 @@ LRESULT MainFrame::OnForwardClicked(WORD code, WORD id, HWND hControl, BOOL &bHa
 
 void MainFrame::OnAddressChange(const CefString& url)
 {
-    m_AddressBar.SetWindowText(url.c_str());
+    m_AddressBar.SetWindowText((const wchar_t *)url.c_str());
 }
 
 void MainFrame::OnTitleChange(const CefString& title)
 {
-    SetWindowText(title.c_str());
+    SetWindowText((const wchar_t*)title.c_str());
 }
 
 void MainFrame::OnLoadingStart(bool bCanBack, bool bCanForward)
